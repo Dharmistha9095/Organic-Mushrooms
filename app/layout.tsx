@@ -1,31 +1,35 @@
 import React from "react"
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
 
-import './globals.css'
+import "./globals.css"
 
-const _geist = Geist({ subsets: ['latin'] })
-const _geistMono = Geist_Mono({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ["latin"],
+})
 
 export const metadata: Metadata = {
-  title: 'Fresh Organic Mushrooms | Local Farm',
-  description: 'Discover premium fresh organic mushrooms grown locally. Oyster, Shiitake, Button mushrooms and more from our sustainable farm.',
-  generator: 'v0.app',
+  title: "Fresh Organic Mushrooms | Local Farm",
+  description:
+    "Discover premium fresh organic mushrooms grown locally. Oyster, Shiitake, Button mushrooms and more from our sustainable farm.",
+  generator: "v0.app",
   viewport: {
-    width: 'device-width',
+    width: "device-width",
     initialScale: 1,
     userScalable: true,
-  }
+  },
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        {children}
+      </body>
     </html>
   )
 }
